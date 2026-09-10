@@ -410,23 +410,25 @@ button:hover {
     box-sizing: border-box;}
 .area-home {
     display: grid;
-    grid-template-columns: minmax(220px, 240px) minmax(0, 1fr) minmax(220px, 240px);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 515px) minmax(0, 1fr);
     width: 100%;
-    max-width: none;
-    margin: 20px 0;
+    max-width: 1051px;
+    margin: 20px auto;
     align-items: start;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 28px;
 }
 .area-home > aside {
-    width: auto;
+    width: min(240px, 100%);
     height: auto;
     margin-left: 0;
+    justify-self: end;
 }
 .area-home > #area_banner {
-    width: min(100%, 515px);
+    width: 100%;
     height: auto;
     min-width: 0;
-    max-width: none;
+    max-width: 515px;
     flex: none;
     justify-self: center;
 }
@@ -844,7 +846,8 @@ footer {
     }
 
     .area-home {
-        grid-template-columns: minmax(200px, 240px) minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 515px) minmax(0, 1fr);
+        max-width: 100%;
     }
 
     .area_principal > aside {
