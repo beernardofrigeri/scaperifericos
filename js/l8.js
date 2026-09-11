@@ -1,56 +1,53 @@
 var imagens = [
-    "../../img/aulaf75.webp",
-    "../../img/aulaf75_glacial.webp",
-    "../../img/aulaf75_cedar_green.webp",
-    "../../img/aulaf75_preto.webp",
-    "../../img/aulaf75_pro.webp"
+    "../../img/l8_pro_dupla.webp",
+    "../../img/l8_pro_preto.webp",
+    "../../img/l8_pro_branco.webp",
+    "../../img/img_banner/l8_pro_one.webp",
+    "../../img/img_banner/l8_pro_two.webp"
 ];
 var indice = 0;
 var TRANSITION_MS = 150;
 var banner = document.getElementById('banner_produto');
 var prevBtn = document.getElementById('button-retorno');
 var nextBtn = document.getElementById('button-avanco');
-var bannerTitle = document.getElementById('banner-title') || null;
-var bannerText = document.getElementById('banner-text') || null;
-var bannerPrice = document.getElementById('banner-price') || null;
+
 if (banner) {
     banner.style.transition = `opacity ${TRANSITION_MS}ms ease`;
     banner.style.opacity = '1';
 }
-// inicializa descrição junto com a imagem atual
-function atualizarDescricao() {
-    return;
-}
-atualizarDescricao();
+
 var isSwitching = false;
+
 function animateButton(btn) {
     if (!btn) return;
     btn.classList.add('nav-anim');
     setTimeout(() => btn.classList.remove('nav-anim'), 180);
 }
+
 function mostrarImagem() {
     if (!banner) return;
     var proxima = imagens[indice];
     if (banner.dataset.target === proxima) return;
     banner.dataset.target = proxima;
+
     if (banner._onFade) {
         banner.removeEventListener('transitionend', banner._onFade);
-        banner._onFade = null;
     }
-    const onTransitionEnd = (e) => {
-        if (e.propertyName !== 'opacity') return;
+
+    var onTransitionEnd = (event) => {
+        if (event.propertyName !== 'opacity') return;
         banner.removeEventListener('transitionend', onTransitionEnd);
         banner._onFade = null;
         banner.src = proxima;
-        // atualiza a descrição quando a imagem for trocada
-        atualizarDescricao();
         requestAnimationFrame(() => requestAnimationFrame(() => banner.style.opacity = '1'));
     };
+
     banner._onFade = onTransitionEnd;
     banner.addEventListener('transitionend', onTransitionEnd);
     banner.style.opacity = '0';
     setTimeout(() => { isSwitching = false; }, TRANSITION_MS * 2 + 60);
 }
+
 function nextImage() {
     if (isSwitching) return;
     isSwitching = true;
@@ -58,6 +55,7 @@ function nextImage() {
     indice = (indice + 1) % imagens.length;
     mostrarImagem();
 }
+
 function prevImage() {
     if (isSwitching) return;
     isSwitching = true;
@@ -65,8 +63,6 @@ function prevImage() {
     indice = (indice - 1 + imagens.length) % imagens.length;
     mostrarImagem();
 }
-function adicionar_carrinho() {
-    alert("Produto adicionado ao carrinho!");
-}
+
 if (nextBtn) nextBtn.addEventListener('click', nextImage);
 if (prevBtn) prevBtn.addEventListener('click', prevImage);

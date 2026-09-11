@@ -1,85 +1,118 @@
-var imagens = [
-    "img/aulaf75.webp",
-    "img/g305.webp",
-    "img/g733.webp"
-];
-var descricoes = [
-    { title: "Teclado Aula F75", text: "Teclado mecânico compacto, switches hot-swap e iluminação RGB. Perfeito para produtividade e jogos.", price: "R$ 249,00" },
-    { title: "Mouse Logitech G305", text: "Mouse sem fio leve com sensor HERO e alta precisão — ótimo para gamers que buscam performance.", price: "R$ 199,00" },
-    { title: "Headset Logitech G733", text: "Fone sem fio com iluminação RGB, excelente conforto e som imersivo.", price: "R$ 449,00" }
-];
-var links = [
-    "html/teclados/aulaf75.html",
-    "html/mouses/g305.html",
-    "html/fones/g733.html"
+var slides = [
+    { image: "img/img_banner/aulaf75_one.jpg", title: "Teclado Aula F75", text: "Teclado mecânico compacto, switches hot-swap, iluminação RGB e construção robusta — ideal para produtividade e jogos.", price: "R$ 249,00", link: "html/teclados/aulaf75.html" },
+    { image: "img/img_banner/aulaf75_two.jpg", title: "Teclado Aula F75", text: "Teclado mecânico compacto, switches hot-swap, iluminação RGB e construção robusta — ideal para produtividade e jogos.", price: "R$ 249,00", link: "html/teclados/aulaf75.html" },
+    { image: "img/img_banner/aulaf75_three.jpg", title: "Teclado Aula F75", text: "Teclado mecânico compacto, switches hot-swap, iluminação RGB e construção robusta — ideal para produtividade e jogos.", price: "R$ 249,00", link: "html/teclados/aulaf75.html" },
+    { image: "img/img_banner/aulaf75_four.jpg", title: "Teclado Aula F75", text: "Teclado mecânico compacto, switches hot-swap, iluminação RGB e construção robusta — ideal para produtividade e jogos.", price: "R$ 249,00", link: "html/teclados/aulaf75.html" },
+    { image: "img/img_banner/l8_pro_one.webp", title: "Machenike L8 Pro", text: "Mouse gamer tri-modo com sensor PAW3395, polling rate de até 8000Hz com fio e base de carregamento sem fio.", price: "R$ 299,00", link: "html/mouses/l8.html" },
+    { image: "img/img_banner/l8_pro_two.webp", title: "Machenike L8 Pro", text: "Mouse gamer tri-modo com sensor PAW3395, polling rate de até 8000Hz com fio e base de carregamento sem fio.", price: "R$ 299,00", link: "html/mouses/l8.html" },
+    { image: "img/img_banner/g733_one.jpg", title: "Headset Logitech G733", text: "Headset sem fio leve e confortável, com som imersivo, microfone removível e iluminação RGB.", price: "R$ 449,00", link: "html/fones/g733.html" },
+    { image: "img/img_banner/g733_two.jpg", title: "Headset Logitech G733", text: "Headset sem fio leve e confortável, com som imersivo, microfone removível e iluminação RGB.", price: "R$ 449,00", link: "html/fones/g733.html" },
+    { image: "img/img_banner/g733_three.jpg", title: "Headset Logitech G733", text: "Headset sem fio leve e confortável, com som imersivo, microfone removível e iluminação RGB.", price: "R$ 449,00", link: "html/fones/g733.html" }
 ];
 var indice = 0;
-var TRANSITION_MS = 150;
+var AUTOPLAY_MS = 5000;
 var banner = document.getElementById('banner');
-var prevBtn = document.getElementById('button-retorno');
-var nextBtn = document.getElementById('button-avanco');
+var bannerArea = document.getElementById('area_banner');
+var bannerViewport = document.getElementById('banner-viewport');
+var bannerTrack = document.getElementById('banner-track');
+var dots = document.getElementById('banner-dots');
 var bannerTitle = document.getElementById('banner-title');
 var bannerText = document.getElementById('banner-text');
 var bannerPrice = document.getElementById('banner-price');
-if (banner) {
-    banner.style.transition = `opacity ${TRANSITION_MS}ms ease`;
-    banner.style.opacity = '1';
-}
-// inicializa descrição junto com a imagem atual
-function atualizarDescricao() {
-    if (bannerTitle) bannerTitle.textContent = descricoes[indice].title || "";
-    if (bannerText) bannerText.textContent = descricoes[indice].text || "";
-    if (bannerPrice) bannerPrice.textContent = descricoes[indice].price || "";
-}
 var botaoMore = document.getElementById('banner-more');
-    if (botaoMore) {
-        botaoMore.onclick = function() {
-            location.href = links[indice];
-        };
+var autoplayTimer;
+var dragStartX = 0;
+var dragOffsetX = 0;
+var isDragging = false;
+
+function atualizarDescricao() {
+    var slide = slides[indice];
+    if (bannerTitle) bannerTitle.textContent = slide.title;
+    if (bannerText) bannerText.textContent = slide.text;
+    if (bannerPrice) bannerPrice.textContent = slide.price;
+    if (botaoMore) botaoMore.onclick = () => { location.href = slide.link; };
+}
+
+function atualizarBolinhas() {
+    if (!dots) return;
+    dots.querySelectorAll('button').forEach((dot, dotIndex) => {
+        dot.classList.toggle('active', dotIndex === indice);
+        dot.setAttribute('aria-current', dotIndex === indice ? 'true' : 'false');
+    });
+}
+
+function mostrarSlide(novoIndice, animar = true) {
+    if (!bannerTrack) return;
+    var passouDoFim = novoIndice >= slides.length;
+    var passouDoInicio = novoIndice < 0;
+    indice = (novoIndice + slides.length) % slides.length;
+    var slide = slides[indice];
+    var indiceDoTrilho = passouDoFim ? slides.length + 1 : passouDoInicio ? 0 : indice + 1;
+    bannerTrack.style.transition = animar ? 'transform 420ms cubic-bezier(0.22, 1, 0.36, 1)' : 'none';
+    bannerTrack.style.transform = `translate3d(${-(indiceDoTrilho * 100 / (slides.length + 2))}%, 0, 0)`;
+    atualizarDescricao();
+    atualizarBolinhas();
+
+    if (animar && (passouDoFim || passouDoInicio)) {
+        bannerTrack.addEventListener('transitionend', () => {
+            bannerTrack.style.transition = 'none';
+            bannerTrack.style.transform = `translate3d(${-(indice + 1) * 100 / (slides.length + 2)}%, 0, 0)`;
+        }, { once: true });
     }
-atualizarDescricao();
-var isSwitching = false;
-function animateButton(btn) {
-    if (!btn) return;
-    btn.classList.add('nav-anim');
-    setTimeout(() => btn.classList.remove('nav-anim'), 180);
 }
-function mostrarImagem() {
-    if (!banner) return;
-    var proxima = imagens[indice];
-    if (banner.dataset.target === proxima) return;
-    banner.dataset.target = proxima;
-    if (banner._onFade) {
-        banner.removeEventListener('transitionend', banner._onFade);
-        banner._onFade = null;
-    }
-    const onTransitionEnd = (e) => {
-        if (e.propertyName !== 'opacity') return;
-        banner.removeEventListener('transitionend', onTransitionEnd);
-        banner._onFade = null;
-        banner.src = proxima;
-        // atualiza a descrição quando a imagem for trocada
-        atualizarDescricao();
-        requestAnimationFrame(() => requestAnimationFrame(() => banner.style.opacity = '1'));
-    };
-    banner._onFade = onTransitionEnd;
-    banner.addEventListener('transitionend', onTransitionEnd);
-    banner.style.opacity = '0';
-    setTimeout(() => { isSwitching = false; }, TRANSITION_MS * 2 + 60);
+
+function iniciarAutoplay() {
+    clearInterval(autoplayTimer);
+    autoplayTimer = setInterval(() => mostrarSlide(indice + 1), AUTOPLAY_MS);
 }
-function nextImage() {
-    if (isSwitching) return;
-    isSwitching = true;
-    animateButton(nextBtn);
-    indice = (indice + 1) % imagens.length;
-    mostrarImagem();
-}
-function prevImage() {
-    if (isSwitching) return;
-    isSwitching = true;
-    animateButton(prevBtn);
-    indice = (indice - 1 + imagens.length) % imagens.length;
-    mostrarImagem();
+
+if (bannerTrack && dots) {
+    bannerTrack.innerHTML = '';
+    var slidesDoTrilho = [slides[slides.length - 1]].concat(slides, slides[0]);
+    slidesDoTrilho.forEach((slide, slideIndex) => {
+        var image = document.createElement('img');
+        image.src = slide.image;
+        image.alt = slide.title;
+        image.draggable = false;
+        bannerTrack.appendChild(image);
+    });
+    slides.forEach((slide, slideIndex) => {
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.ariaLabel = `Exibir imagem ${slideIndex + 1}`;
+        dot.addEventListener('pointerdown', (event) => event.stopPropagation());
+        dot.addEventListener('click', () => { mostrarSlide(slideIndex); iniciarAutoplay(); });
+        dots.appendChild(dot);
+    });
+    mostrarSlide(0, false);
+    iniciarAutoplay();
+    bannerViewport.addEventListener('pointerdown', (event) => {
+        event.preventDefault();
+        isDragging = true;
+        dragStartX = event.clientX;
+        dragOffsetX = 0;
+        bannerTrack.style.transition = 'none';
+        bannerViewport.setPointerCapture(event.pointerId);
+    });
+    bannerViewport.addEventListener('pointermove', (event) => {
+        if (!isDragging) return;
+        dragOffsetX = event.clientX - dragStartX;
+        var width = bannerViewport.clientWidth || 1;
+        var baseOffset = -(indice + 1) * width;
+        bannerTrack.style.transform = `translate3d(${baseOffset + dragOffsetX}px, 0, 0)`;
+    });
+    bannerViewport.addEventListener('pointerup', () => {
+        if (!isDragging) return;
+        isDragging = false;
+        if (Math.abs(dragOffsetX) > 50) {
+            mostrarSlide(indice + (dragOffsetX < 0 ? 1 : -1));
+        } else {
+            mostrarSlide(indice);
+        }
+        iniciarAutoplay();
+    });
+    bannerViewport.addEventListener('pointercancel', () => { isDragging = false; mostrarSlide(indice); });
+    bannerViewport.addEventListener('dragstart', (event) => event.preventDefault());
 }
 // shopping cart helpers ------------------------------------------------
 function getCart() {
@@ -329,9 +362,6 @@ function startCheckout() {
         }, 500);
     }, 2000);
 }
-
-if (nextBtn) nextBtn.addEventListener('click', nextImage);
-if (prevBtn) prevBtn.addEventListener('click', prevImage);
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.caixa_segundaria_contato form');

@@ -111,7 +111,7 @@ h2 {
     background-color: white;
     padding: 16px;
     border-radius: 8px;
-    width: min(100%, 515px);
+    width: min(100%, 680px);
     flex: none;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     display: flex;
@@ -124,6 +124,30 @@ h2 {
     gap: 8px;
     margin-top: 12px;
 }
+#banner-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    bottom: 14px;
+    transform: translateX(-50%);
+    margin: 0;
+}
+#banner-dots button {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.58);
+    border: 1px solid rgba(17, 24, 39, 0.25);
+    transition: transform 180ms ease, background-color 180ms ease;
+}
+#banner-dots button.active {
+    background: rgba(17, 24, 39, 0.72);
+    transform: scale(1.2);
+}
 #banner_desc h3 {
     margin: 0;
     font-size: 20px;}
@@ -135,14 +159,41 @@ h2 {
     font-weight: bold;}
 #banner {
     width: 100%;
-    max-width: 515px;
-    height: auto;
-    aspect-ratio: 515 / 500;
+    height: 100%;
+    flex: 0 0 100%;
     object-fit: cover;
+    user-select: none;
+    pointer-events: none;}
+#banner-viewport {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    overflow: hidden;
+    background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-    transition: opacity 150ms ease, transform 300ms ease;
-    opacity: 1;}
+    touch-action: pan-y;
+    cursor: grab;
+}
+#banner-viewport:active {
+    cursor: grabbing;
+}
+#banner-track {
+    display: flex;
+    width: 1100%;
+    height: 100%;
+    will-change: transform;
+}
+#banner-track img {
+    width: calc(100% / 11);
+    height: 100%;
+    flex: 0 0 calc(100% / 11);
+    object-fit: cover;
+    user-select: none;
+    pointer-events: none;
+    border-radius: 12px;
+}
 #banner_left {
     width: min(240px, 100%);
     height: auto;
@@ -219,16 +270,28 @@ button:hover {
     border-radius: 6px;
     padding: 28px 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: inherit;
+    text-decoration: none;
+    transition: background-color 180ms ease;
+}
+.confianca-item:hover {
+    background: #e5e7eb;
 }
 .confianca-item .icone {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0 auto 12px auto;
     width: 36px;
     height: 36px;
 }
 .confianca-item .icone svg {
-    width: 100%;
-    height: 100%;
+    display: block;
+    width: 28px;
+    height: 28px;
     stroke: var(--preto);
     fill: none;
     stroke-width: 1.6;
@@ -410,16 +473,16 @@ button:hover {
     box-sizing: border-box;}
 .area-home {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 515px) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 680px) minmax(0, 1fr);
     width: 100%;
-    max-width: 1051px;
+    max-width: 1316px;
     margin: 20px auto;
     align-items: start;
     justify-content: center;
     gap: 28px;
 }
 .area-home > aside {
-    width: min(240px, 100%);
+    width: min(280px, 100%);
     height: auto;
     margin-left: 0;
     justify-self: end;
@@ -428,7 +491,7 @@ button:hover {
     width: 100%;
     height: auto;
     min-width: 0;
-    max-width: 515px;
+    max-width: 680px;
     flex: none;
     justify-self: center;
 }
@@ -478,7 +541,8 @@ p.descricao-produto {
     width: 100%;
     max-width: 515px;
     height: 567px;
-    object-fit: cover;
+    object-fit: contain;
+    background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.15);
     transition: opacity 150ms ease;}
@@ -846,7 +910,7 @@ footer {
     }
 
     .area-home {
-        grid-template-columns: minmax(0, 1fr) minmax(300px, 515px) minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 680px) minmax(0, 1fr);
         max-width: 100%;
     }
 
@@ -922,6 +986,7 @@ footer {
     #banner_produto {
         height: auto;
         aspect-ratio: 515 / 567;
+        object-fit: contain;
     }
 
     .produto-side {

@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-            <img src="img/saocarloslogo.png" alt="Logo" width="175" height="87.5">
+        <img src="img/saocarloslogo.png" alt="Logo" width="175" height="87.5">
     <nav>
         <ul>
             <li><a href="index.html" class="menu-alt">Início</a></li>
@@ -35,17 +35,18 @@
                 <button onclick="location.href='html/teclados/mkeypro75.html'"><i>Mais informações</i></button>
             </aside>
             <div id="area_banner">
-                <img src="img/aulaf75.webp" id="banner" width="515" height="500" alt="Banner">
+                <div id="banner-viewport">
+                    <div id="banner-track">
+                        <img src="img/img_banner/aulaf75_one.jpg" id="banner" alt="Teclado Aula F75" draggable="false">
+                    </div>
+                    <div id="banner-dots" aria-label="Selecionar imagem do banner"></div>
+                </div>
                 <aside id="banner_desc" aria-live="polite">
                     <h3 id="banner-title">Teclado Aula F75</h3>
                     <p id="banner-text">Teclado mecânico compacto, switches hot-swap, iluminação RGB e construção robusta — ideal para produtividade e jogos.</p>
                     <p id="banner-price"><strong>R$ 249,00</strong></p>
                     <button id="banner-more" type="button">Mais informações</button>
                 </aside>
-                <div id="buttons_banner">
-                    <button id="button-retorno" type="button" aria-label="Anterior">←</button>
-                    <button id="button-avanco" type="button" aria-label="Próximo">→</button>
-                </div>
             </div>
         </section>
         <div class="secao-lado-a-lado">
@@ -54,34 +55,34 @@
                         <h2>Por que comprar com a gente?</h2>
                     </div>
                     <div class="confianca-grid">
-                        <div class="confianca-item">
+                        <a class="confianca-item" href="faq.html">
                             <span class="icone">
                                 <svg viewBox="0 0 24 24"><path d="M1 3h13v13H1z"/><path d="M14 8h4l4 4v4h-8V8z"/><circle cx="5.5" cy="18.5" r="1.8"/><circle cx="17.5" cy="18.5" r="1.8"/></svg>
                             </span>
                             <h3>Frete rápido</h3>
                             <p>Envio em até 24h para todo o Brasil.</p>
-                        </div>
-                        <div class="confianca-item">
+                        </a>
+                        <a class="confianca-item" href="faq.html">
                             <span class="icone">
                                 <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 8.6 8 11 4.6-2.4 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg>
                             </span>
                             <h3>Garantia de 12 meses</h3>
                             <p>Todos os produtos com garantia direto com a loja.</p>
-                        </div>
-                        <div class="confianca-item">
+                        </a>
+                        <a class="confianca-item" href="faq.html">
                             <span class="icone">
                                 <svg viewBox="0 0 24 24"><path d="M17 2 21 6 17 10"/><path d="M3 6h18"/><path d="M7 22 3 18 7 14"/><path d="M21 18H3"/></svg>
                             </span>
                             <h3>Troca fácil</h3>
                             <p>7 dias para trocar ou devolver sem burocracia.</p>
-                        </div>
-                        <div class="confianca-item">
+                        </a>
+                        <a class="confianca-item" href="faq.html">
                             <span class="icone">
                                 <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                             </span>
                             <h3>Suporte real</h3>
                             <p>Atendimento humano antes e depois da compra.</p>
-                        </div>  
+                        </a>
                     </div>
                 </div>
             <div class="coluna-depoimentos">
