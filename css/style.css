@@ -213,30 +213,40 @@ button {
     background-color: #a0a0a0;
     color: white;
     padding: 8px 12px;
-    border: none;
+    border: 2px solid transparent;
     border-radius: 10px;
     font-size: 16px;
+    font-family: "Dancing Script", cursive;
     cursor: pointer;
-    transition: background-color 0.3s ease;}
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
 button:hover {
-    background-color: rgb(255, 223, 15);
-    color: rgba(255, 0, 0, 0.922);}
+    background-color: transparent;
+    color: blue;
+    border-color: gold;
+    font-family: "Dancing Script", "Segoe Script", "Brush Script MT", cursive;
+    font-style: normal;
+}
 .button-section1:hover {
-    background-color: blue;
-    color: white;}
+    background-color: transparent;
+    border-color: blue;
+    color: blue;}
 .button-section2:hover {
-    background-color: rgb(255, 223, 15);
-    color: white;}
+    background-color: transparent;
+    border-color: gold;
+    color: goldenrod;}
 .button-section3:hover {
-    background-color: red;
-    color: white;}
+    background-color: transparent;
+    border-color: red;
+    color: red;}
 #button-retorno, #button-avanco {
     background: #a0a0a0;
     color: white;
     padding: 10px 14px;
     border-radius: 10px;
     font-size: 18px;
-    transition: transform 120ms ease, background-color 200ms ease;}
+    transition: transform 120ms ease, background-color 200ms ease;
+}
 #button-retorno:hover {
     transform: translateY(-3px);
     background-color: blue;}
@@ -678,7 +688,8 @@ p.descricao-produto {
     border-radius: 9px;
     cursor: pointer;
     font-size: 16px;
-    transition: color 0.25s ease;}
+    transition: color 0.25s ease;
+}
 .email-label {
     position: relative;
     z-index: 2;
