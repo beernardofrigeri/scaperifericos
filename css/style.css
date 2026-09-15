@@ -216,15 +216,28 @@ button {
     border: 2px solid transparent;
     border-radius: 10px;
     font-size: 16px;
-    font-family: "Dancing Script", cursive;
     cursor: pointer;
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 button:hover {
     background-color: transparent;
     color: blue;
-    border-color: gold;
-    font-family: "Dancing Script", "Segoe Script", "Brush Script MT", cursive;
+    font-style: normal;
+}
+.button-banner{
+    background-color: #a0a0a0;
+    color: white;
+    padding: 8px 12px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.button-banner:hover {
+    background-color: transparent;
+    border-color: blue;
+    color: blue;
     font-style: normal;
 }
 .button-section1:hover {
@@ -232,10 +245,6 @@ button:hover {
     border-color: blue;
     color: blue;}
 .button-section2:hover {
-    background-color: transparent;
-    border-color: gold;
-    color: goldenrod;}
-.button-section3:hover {
     background-color: transparent;
     border-color: red;
     color: red;}
