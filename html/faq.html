@@ -11,62 +11,119 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <style>
         .faq-container {
-            max-width: 900px;
-            margin: 30px auto;
+            max-width: 1200px;
+            margin: 40px auto;
             padding: 20px;
         }
+        .intro-text {
+            text-align: center;
+            color: #666;
+            font-size: 15px;
+            margin: 30px 0 50px 0;
+            line-height: 1.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
         .faq-section {
-            margin: 40px 0;
+            margin-bottom: 60px;
         }
         .faq-section h2 {
-            background-color: var(--azul);
-            color: white;
-            font-size: 22px;
-            padding: 15px;
-            text-align: center;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-        .faq-item {
-            margin: 20px 0;
-            border-left: 4px solid var(--azul);
-            padding: 15px;
-            background-color: #f9f9f9;
-            border-radius: 3px;
-        }
-        .faq-item h3 {
-            color: var(--azul);
-            margin-top: 0;
-            cursor: pointer;
             display: flex;
             align-items: center;
+            gap: 14px;
+            font-size: 20px;
+            font-weight: 600;
+            color: #111827;
+            margin: 0 0 28px 0;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--azul);
+            background: none;
+        }
+        .faq-section h2::after {
+            content: attr(data-count);
+            font-size: 14px;
+            color: var(--azul);
+            font-weight: 700;
+            background: #f3f4f6;
+            padding: 2px 8px;
+            border-radius: 12px;
+            margin-left: auto;
+        }
+        .faq-items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 18px;
+        }
+        .faq-item {
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 0;
+            overflow: hidden;
+            transition: all 200ms ease, box-shadow 200ms ease;
+            cursor: pointer;
+        }
+        .faq-item:hover {
+            border-color: var(--azul);
+            box-shadow: 0 4px 12px rgba(29, 78, 216, 0.08);
+        }
+        .faq-item h3 {
+            color: #111827;
+            margin: 0;
+            cursor: pointer;
+            display: flex;
+            align-items: flex-start;
             justify-content: space-between;
-            font-size: 18px;
+            font-size: 15px;
+            font-weight: 500;
+            padding: 16px 18px;
+            gap: 12px;
+            line-height: 1.4;
         }
         .faq-item h3:before {
             content: "▶";
-            display: inline-block;
-            margin-right: 10px;
-            transition: transform 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--azul);
+            font-size: 12px;
+            min-width: 16px;
+            transition: transform 300ms ease;
+            flex-shrink: 0;
+            margin-top: 2px;
         }
         .faq-item.active h3:before {
             transform: rotate(90deg);
         }
         .faq-item p {
-            margin: 10px 0 0 0;
+            margin: 0;
+            padding: 0 18px 16px 34px;
             color: #555;
             line-height: 1.6;
+            font-size: 14px;
             display: none;
+            background: #fafafa;
+            border-top: 1px solid #f0f0f0;
         }
         .faq-item.active p {
             display: block;
         }
-        .intro-text {
-            text-align: center;
-            color: #666;
-            font-size: 16px;
-            margin: 20px 0;
-            line-height: 1.8;
+        .faq-item.active h3 {
+            background-color: #f9fafb;
+        }
+        @media (max-width: 900px) {
+            .faq-items-grid {
+                grid-template-columns: 1fr;
+            }
+            .faq-section h2 {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .faq-section h2::after {
+                margin-left: 0;
+                align-self: flex-start;
+            }
         }
     </style>
 </head>
@@ -93,211 +150,219 @@
 
             <!-- SEÇÃO: SOBRE PEDIDOS -->
             <div class="faq-section">
-                <h2>📦 Sobre Pedidos</h2>
-                
-                <div class="faq-item">
-                    <h3>Como faço um pedido?</h3>
-                    <p>Fazer um pedido é fácil! Navegue por nossas categorias (Teclados, Mouses e Fones de Ouvido), escolha o produto desejado, clique em "Adicionar ao carrinho" e finalize a compra. Você pode revisar seu carrinho a qualquer momento antes de confirmar a compra.</p>
-                </div>
+                <h2 data-count="4">📦 Sobre Pedidos</h2>
+                <div class="faq-items-grid">
+                    <div class="faq-item">
+                        <h3>Como faço um pedido?</h3>
+                        <p>Fazer um pedido é fácil! Navegue por nossas categorias (Teclados, Mouses e Fones de Ouvido), escolha o produto desejado, clique em "Adicionar ao carrinho" e finalize a compra. Você pode revisar seu carrinho a qualquer momento antes de confirmar a compra.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>Posso alterar meu pedido após realizá-lo?</h3>
-                    <p>Se o pedido ainda não foi despachado, você pode cancelá-lo ou alterá-lo. Entre em contato conosco pelo WhatsApp ou formulário de contato com os detalhes do seu pedido para solicitar alterações. Procuramos responder em até 2 horas durante o horário comercial.</p>
-                </div>
+                    <div class="faq-item">
+                        <h3>Posso alterar meu pedido após realizá-lo?</h3>
+                        <p>Se o pedido ainda não foi despachado, você pode cancelá-lo ou alterá-lo. Entre em contato conosco pelo WhatsApp ou formulário de contato com os detalhes do seu pedido para solicitar alterações. Procuramos responder em até 2 horas durante o horário comercial.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>Qual é o horário de atendimento?</h3>
-                    <p>Nosso atendimento funciona de segunda a sexta-feira, das 8h às 18h, e aos sábados das 9h às 13h (horário de Brasília). Você pode enviar mensagens fora desses horários e responderemos assim que possível.</p>
-                </div>
+                    <div class="faq-item">
+                        <h3>Qual é o horário de atendimento?</h3>
+                        <p>Nosso atendimento funciona de segunda a sexta-feira, das 8h às 18h, e aos sábados das 9h às 13h (horário de Brasília). Você pode enviar mensagens fora desses horários e responderemos assim que possível.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>Como uso um cupom de desconto?</h3>
-                    <p>No seu carrinho, você verá um campo "Cupom de desconto". Digite o código (por exemplo: SCA10) e clique em "Aplicar". O desconto será calculado automaticamente. Atualmente, o cupom SCA10 oferece 10% de desconto em toda a compra.</p>
+                    <div class="faq-item">
+                        <h3>Como uso um cupom de desconto?</h3>
+                        <p>No seu carrinho, você verá um campo "Cupom de desconto". Digite o código (por exemplo: SCA10) e clique em "Aplicar". O desconto será calculado automaticamente. Atualmente, o cupom SCA10 oferece 10% de desconto em toda a compra.</p>
+                    </div>
                 </div>
             </div>
 
             <!-- SEÇÃO: PAGAMENTO -->
             <div class="faq-section">
-                <h2>💳 Pagamento</h2>
-                
-                <div class="faq-item">
-                    <h3>Quais são as formas de pagamento?</h3>
-                    <p>Neste momento, oferecemos a opção de pagamento após o contato direto via WhatsApp ou email. Você receberá as instruções de pagamento por transferência bancária, Pix ou outras formas conforme acordado com nosso atendimento.</p>
-                </div>
+                <h2 data-count="3">💳 Pagamento</h2>
+                <div class="faq-items-grid">
+                    <div class="faq-item">
+                        <h3>Quais são as formas de pagamento?</h3>
+                        <p>Neste momento, oferecemos a opção de pagamento após o contato direto via WhatsApp ou email. Você receberá as instruções de pagamento por transferência bancária, Pix ou outras formas conforme acordado com nosso atendimento.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>É seguro comprar no site?</h3>
-                    <p>Sim! Utilizamos certificados SSL para proteção de dados. Seu carrinho é armazenado localmente em seu dispositivo, e ao finalizar a compra, você receberá orientações seguras para o pagamento. Nunca compartilhe senhas ou dados bancários completos por mensagens não seguras.</p>
-                </div>
+                    <div class="faq-item">
+                        <h3>É seguro comprar no site?</h3>
+                        <p>Sim! Utilizamos certificados SSL para proteção de dados. Seu carrinho é armazenado localmente em seu dispositivo, e ao finalizar a compra, você receberá orientações seguras para o pagamento. Nunca compartilhe senhas ou dados bancários completos por mensagens não seguras.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>Meu pedido foi cancelado, como obtenho reembolso?</h3>
-                    <p>Em caso de cancelamento anterior ao pagamento, o reembolso não é necessário. Se já realizou o pagamento, ele será devolvido à sua conta bancária em até 5 dias úteis. Para pedidos cancellados após o envio, consulte nossa política de devoluções.</p>
+                    <div class="faq-item">
+                        <h3>Meu pedido foi cancelado, como obtenho reembolso?</h3>
+                        <p>Em caso de cancelamento anterior ao pagamento, o reembolso não é necessário. Se já realizou o pagamento, ele será devolvido à sua conta bancária em até 5 dias úteis. Para pedidos cancellados após o envio, consulte nossa política de devoluções.</p>
+                    </div>
                 </div>
             </div>
 
             <!-- SEÇÃO: ENTREGA E FRETE -->
             <div class="faq-section">
-                <h2>🚚 Entrega e Frete</h2>
-                
-                <div class="faq-item">
-                    <h3>Qual é o prazo de entrega?</h3>
-                    <p>Oferecemos envio em até 24 horas para pedidos confirmados. O prazo total depende de sua localização: para São Paulo e cidades próximas, 2-3 dias úteis; para outras regiões do Brasil, 5-7 dias úteis. Regiões remotas podem levar até 15 dias úteis.</p>
-                </div>
+                <h2 data-count="5">🚚 Entrega e Frete</h2>
+                <div class="faq-items-grid">
+                    <div class="faq-item">
+                        <h3>Qual é o prazo de entrega?</h3>
+                        <p>Oferecemos envio em até 24 horas para pedidos confirmados. O prazo total depende de sua localização: para São Paulo e cidades próximas, 2-3 dias úteis; para outras regiões do Brasil, 5-7 dias úteis. Regiões remotas podem levar até 15 dias úteis.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>O frete é cobrado?</h3>
-                    <p>O frete é calculado conforme o valor do pedido e a região de entrega. Oferecemos frete grátis para compras acima de R$ 300 em São Paulo e região metropolitana. Para outras regiões, a taxa será informada antes da finalização da compra.</p>
-                </div>
+                    <div class="faq-item">
+                        <h3>O frete é cobrado?</h3>
+                        <p>O frete é calculado conforme o valor do pedido e a região de entrega. Oferecemos frete grátis para compras acima de R$ 300 em São Paulo e região metropolitana. Para outras regiões, a taxa será informada antes da finalização da compra.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>Posso acompanhar meu pedido?</h3>
-                    <p>Sim! Após o envio, você receberá um número de rastreamento por email ou WhatsApp. Com esse código, você pode acompanhar a entrega em tempo real no site da transportadora até receber seu produto.</p>
-                </div>
+                    <div class="faq-item">
+                        <h3>Posso acompanhar meu pedido?</h3>
+                        <p>Sim! Após o envio, você receberá um número de rastreamento por email ou WhatsApp. Com esse código, você pode acompanhar a entrega em tempo real no site da transportadora até receber seu produto.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>Vocês entregam em minha região?</h3>
-                    <p>Entregamos em todo o Brasil através de parceiros logísticos. No entanto, algumas regiões remotas podem ter restrições. Ao entrar em contato pelo WhatsApp, informamos a disponibilidade de entrega e prazos específicos para sua localização.</p>
-                </div>
+                    <div class="faq-item">
+                        <h3>Vocês entregam em minha região?</h3>
+                        <p>Entregamos em todo o Brasil através de parceiros logísticos. No entanto, algumas regiões remotas podem ter restrições. Ao entrar em contato pelo WhatsApp, informamos a disponibilidade de entrega e prazos específicos para sua localização.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>O que fazer se meu pedido não chegar no prazo?</h3>
-                    <p>Se o prazo foi ultrapassado, entre em contato conosco imediatamente com o número de rastreamento. Investigaremos junto à transportadora e buscaremos uma solução rápida, que pode incluir reembolso ou reenvio do produto.</p>
+                    <div class="faq-item">
+                        <h3>O que fazer se meu pedido não chegar no prazo?</h3>
+                        <p>Se o prazo foi ultrapassado, entre em contato conosco imediatamente com o número de rastreamento. Investigaremos junto à transportadora e buscaremos uma solução rápida, que pode incluir reembolso ou reenvio do produto.</p>
+                    </div>
                 </div>
             </div>
 
             <!-- SEÇÃO: TROCAS E DEVOLUÇÕES -->
             <div class="faq-section">
-                <h2>🔄 Trocas e Devoluções</h2>
-                
-                <div class="faq-item">
-                    <h3>Qual é a política de troca e devolução?</h3>
-                    <p>Você tem 7 dias após receber o produto para solicitar troca ou devolução, sem perguntas. O produto deve estar em perfeito estado, com todos os acessórios originais e embalagem intacta. Custos de frete para devolução podem ser subsidiados ou cobrados, conforme o motivo.</p>
-                </div>
+                <h2 data-count="4">🔄 Trocas e Devoluções</h2>
+                <div class="faq-items-grid">
+                    <div class="faq-item">
+                        <h3>Qual é a política de troca e devolução?</h3>
+                        <p>Você tem 7 dias após receber o produto para solicitar troca ou devolução, sem perguntas. O produto deve estar em perfeito estado, com todos os acessórios originais e embalagem intacta. Custos de frete para devolução podem ser subsidiados ou cobrados, conforme o motivo.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>Como faço uma troca?</h3>
-                    <p>Envie uma mensagem via WhatsApp ou email com fotos do produto e o motivo da troca. Nossa equipe irá avaliar e fornecerá instruções para o envio de devolução. Assim que recebermos e validarmos, enviaremos o novo produto sem custo adicional.</p>
-                </div>
+                    <div class="faq-item">
+                        <h3>Como faço uma troca?</h3>
+                        <p>Envie uma mensagem via WhatsApp ou email com fotos do produto e o motivo da troca. Nossa equipe irá avaliar e fornecerá instruções para o envio de devolução. Assim que recebermos e validarmos, enviaremos o novo produto sem custo adicional.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>Posso devolver o produto após 7 dias?</h3>
-                    <p>Após 7 dias, a devolução cai sob a garantia do produto. Se houver defeito de fabricação, a garantia de 12 meses cobre a reparação ou substituição. Para devoluções sem defeito após este período, você arcará com custos de frete e processamento.</p>
-                </div>
+                    <div class="faq-item">
+                        <h3>Posso devolver o produto após 7 dias?</h3>
+                        <p>Após 7 dias, a devolução cai sob a garantia do produto. Se houver defeito de fabricação, a garantia de 12 meses cobre a reparação ou substituição. Para devoluções sem defeito após este período, você arcará com custos de frete e processamento.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>Como solicito devolução do frete em caso de defeito?</h3>
-                    <p>Se o produto chegou com defeito, o frete de devolução é totalmente subsidiado por nós. Basta informar ao atendimento que o produto veio com problemas, e forneceremos uma etiqueta de frete grátis para devolução.</p>
+                    <div class="faq-item">
+                        <h3>Como solicito devolução do frete em caso de defeito?</h3>
+                        <p>Se o produto chegou com defeito, o frete de devolução é totalmente subsidiado por nós. Basta informar ao atendimento que o produto veio com problemas, e forneceremos uma etiqueta de frete grátis para devolução.</p>
+                    </div>
                 </div>
             </div>
 
             <!-- SEÇÃO: GARANTIA -->
             <div class="faq-section">
-                <h2>🛡️ Garantia</h2>
-                
-                <div class="faq-item">
-                    <h3>Qual é o período de garantia?</h3>
-                    <p>Todos os nossos produtos possuem garantia de 12 meses a partir da data de compra. A garantia cobre defeitos de fabricação e funcionamento. Não cobre danos por queda, líquidos, ou uso inadequado.</p>
-                </div>
+                <h2 data-count="5">🛡️ Garantia</h2>
+                <div class="faq-items-grid">
+                    <div class="faq-item">
+                        <h3>Qual é o período de garantia?</h3>
+                        <p>Todos os nossos produtos possuem garantia de 12 meses a partir da data de compra. A garantia cobre defeitos de fabricação e funcionamento. Não cobre danos por queda, líquidos, ou uso inadequado.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>Como ativo a garantia?</h3>
-                    <p>A garantia é ativada automaticamente na compra. Você receberá um comprovante de garantia por email. Basta guardá-lo junto com a nota de compra. Para acionar a garantia, entre em contato conosco com estas informações.</p>
-                </div>
+                    <div class="faq-item">
+                        <h3>Como ativo a garantia?</h3>
+                        <p>A garantia é ativada automaticamente na compra. Você receberá um comprovante de garantia por email. Basta guardá-lo junto com a nota de compra. Para acionar a garantia, entre em contato conosco com estas informações.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>O que não é coberto pela garantia?</h3>
-                    <p>A garantia não cobre: danos por queda ou impactos, danos por contato com líquidos, desgaste natural de componentes, batidas, alterações ou desmontagens não autorizadas, danos por manutenção inadequada e uso fora das especificações do fabricante.</p>
-                </div>
+                    <div class="faq-item">
+                        <h3>O que não é coberto pela garantia?</h3>
+                        <p>A garantia não cobre: danos por queda ou impactos, danos por contato com líquidos, desgaste natural de componentes, batidas, alterações ou desmontagens não autorizadas, danos por manutenção inadequada e uso fora das especificações do fabricante.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>Como faço uma reclamação de garantia?</h3>
-                    <p>Envie fotos do produto com defeito e a descrição do problema via WhatsApp ou email. Nosso time avaliará se o defeito está coberto. Se sim, solicitaremos a devolução do produto. Após validação, enviaremos um produto novo ou reparado sem custos.</p>
-                </div>
+                    <div class="faq-item">
+                        <h3>Como faço uma reclamação de garantia?</h3>
+                        <p>Envie fotos do produto com defeito e a descrição do problema via WhatsApp ou email. Nosso time avaliará se o defeito está coberto. Se sim, solicitaremos a devolução do produto. Após validação, enviaremos um produto novo ou reparado sem custos.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>Quanto tempo leva para receber meu produto reparado?</h3>
-                    <p>O prazo para análise do defeito é de até 5 dias úteis. Após confirmação, o produto é reparado ou substituído em até 10 dias úteis, mais o tempo de frete (2-7 dias, conforme sua região).</p>
+                    <div class="faq-item">
+                        <h3>Quanto tempo leva para receber meu produto reparado?</h3>
+                        <p>O prazo para análise do defeito é de até 5 dias úteis. Após confirmação, o produto é reparado ou substituído em até 10 dias úteis, mais o tempo de frete (2-7 dias, conforme sua região).</p>
+                    </div>
                 </div>
             </div>
 
             <!-- SEÇÃO: PRODUTOS -->
             <div class="faq-section">
-                <h2>⌨️ Sobre os Produtos</h2>
-                
-                <div class="faq-item">
-                    <h3>Quais marcas vocês vendem?</h3>
-                    <p>Vendemos periféricos de marcas renomadas como Logitech, Razer, HyperX, Corsair, Redragon, Keychron, Machenike, Edifier, Attack Shark, Havit, Womier e Aula. Todas as marcas oferecem produtos de qualidade e durabilidade.</p>
-                </div>
+                <h2 data-count="6">⌨️ Sobre os Produtos</h2>
+                <div class="faq-items-grid">
+                    <div class="faq-item">
+                        <h3>Quais marcas vocês vendem?</h3>
+                        <p>Vendemos periféricos de marcas renomadas como Logitech, Razer, HyperX, Corsair, Redragon, Keychron, Machenike, Edifier, Attack Shark, Havit, Womier e Aula. Todas as marcas oferecem produtos de qualidade e durabilidade.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>Como sei qual teclado mecânico é melhor para mim?</h3>
-                    <p>Escolher depende de seu uso: para jogos, prefira switches lineares (rápidos); para digitação, prefera switches táteis. Considere também tamanho (75%, 80%, 100%), retroiluminação RGB, e seu orçamento. Visite a página de cada teclado para detalhes técnicos completos.</p>
-                </div>
+                    <div class="faq-item">
+                        <h3>Como sei qual teclado mecânico é melhor para mim?</h3>
+                        <p>Escolher depende de seu uso: para jogos, prefira switches lineares (rápidos); para digitação, prefera switches táteis. Considere também tamanho (75%, 80%, 100%), retroiluminação RGB, e seu orçamento. Visite a página de cada teclado para detalhes técnicos completos.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>Qual mouse é melhor para competição?</h3>
-                    <p>Para competição, procure mouses com sensor óptico de alta precisão (PAW3395 ou superior), polling rate de 1000Hz, peso leve e ergonomia. Modelos como Razer DeathAdder V2, Logitech G305 e Attack Shark R1 são excelentes escolhas.</p>
-                </div>
+                    <div class="faq-item">
+                        <h3>Qual mouse é melhor para competição?</h3>
+                        <p>Para competição, procure mouses com sensor óptico de alta precisão (PAW3395 ou superior), polling rate de 1000Hz, peso leve e ergonomia. Modelos como Razer DeathAdder V2, Logitech G305 e Attack Shark R1 são excelentes escolhas.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>Qual fone de ouvido tem melhor cancelamento de ruído?</h3>
-                    <p>Nossos fones com cancelamento ativo de ruído (ANC) incluem Logitech G733, Corsair HS50 Pro e Edifier WH700NB. Para melhor isolamento sem ANC, o Logitech Pro X oferece excelente redução passiva de ruído.</p>
-                </div>
+                    <div class="faq-item">
+                        <h3>Qual fone de ouvido tem melhor cancelamento de ruído?</h3>
+                        <p>Nossos fones com cancelamento ativo de ruído (ANC) incluem Logitech G733, Corsair HS50 Pro e Edifier WH700NB. Para melhor isolamento sem ANC, o Logitech Pro X oferece excelente redução passiva de ruído.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>Os periféricos são compatíveis com console?</h3>
-                    <p>Alguns periféricos são compatíveis com PlayStation, Xbox e Nintendo Switch. Verifique as especificações técnicas na página do produto. A maioria dos mouses e teclados requer adaptador ou conexão USB direta. Fones wireless geralmente têm compatibilidade ampla.</p>
-                </div>
+                    <div class="faq-item">
+                        <h3>Os periféricos são compatíveis com console?</h3>
+                        <p>Alguns periféricos são compatíveis com PlayStation, Xbox e Nintendo Switch. Verifique as especificações técnicas na página do produto. A maioria dos mouses e teclados requer adaptador ou conexão USB direta. Fones wireless geralmente têm compatibilidade ampla.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>Posso escolher cor ou versão específica do produto?</h3>
-                    <p>Sim! Muitos produtos têm múltiplas cores e variações. Na página de cada produto, clique nos botões de navegação (← e →) para ver todas as cores disponíveis. Ao adicionar ao carrinho, você seleciona a cor/versão específica desejada.</p>
+                    <div class="faq-item">
+                        <h3>Posso escolher cor ou versão específica do produto?</h3>
+                        <p>Sim! Muitos produtos têm múltiplas cores e variações. Na página de cada produto, clique nos botões de navegação (← e →) para ver todas as cores disponíveis. Ao adicionar ao carrinho, você seleciona a cor/versão específica desejada.</p>
+                    </div>
                 </div>
             </div>
 
             <!-- SEÇÃO: SUPORTE -->
             <div class="faq-section">
-                <h2>💬 Suporte</h2>
-                
-                <div class="faq-item">
-                    <h3>Como entro em contato com vocês?</h3>
-                    <p>Você pode nos contatar de duas formas principais: enviando uma mensagem pelo WhatsApp (clique no botão WhatsApp da página de contato) ou preenchendo o formulário de contato. Também aceitamos email para dúvidas mais complexas.</p>
-                </div>
+                <h2 data-count="4">💬 Suporte</h2>
+                <div class="faq-items-grid">
+                    <div class="faq-item">
+                        <h3>Como entro em contato com vocês?</h3>
+                        <p>Você pode nos contatar de duas formas principais: enviando uma mensagem pelo WhatsApp (clique no botão WhatsApp da página de contato) ou preenchendo o formulário de contato. Também aceitamos email para dúvidas mais complexas.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>Qual é o tempo médio de resposta?</h3>
-                    <p>Respondemos mensagens em até 2 horas durante o horário comercial (seg-sex 8h-18h, sab 9h-13h). Fora destes horários, a resposta será dada assim que possível no próximo dia útil.</p>
-                </div>
+                    <div class="faq-item">
+                        <h3>Qual é o tempo médio de resposta?</h3>
+                        <p>Respondemos mensagens em até 2 horas durante o horário comercial (seg-sex 8h-18h, sab 9h-13h). Fora destes horários, a resposta será dada assim que possível no próximo dia útil.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>Vocês oferecem suporte técnico para produtos?</h3>
-                    <p>Sim! Oferecemos orientações básicas sobre uso, configuração e troubleshooting de produtos. Para problemas técnicos específicos, recomendamos contactar o suporte do fabricante com base nas especificações do produto, ou solicitar ajuda através de nossa página de contato.</p>
-                </div>
+                    <div class="faq-item">
+                        <h3>Vocês oferecem suporte técnico para produtos?</h3>
+                        <p>Sim! Oferecemos orientações básicas sobre uso, configuração e troubleshooting de produtos. Para problemas técnicos específicos, recomendamos contactar o suporte do fabricante com base nas especificações do produto, ou solicitar ajuda através de nossa página de contato.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>Existe um chatbot ou atendimento automático?</h3>
-                    <p>Não, oferecemos atendimento humano real! Todas as mensagens são respondidas por membros da nossa equipe. Acreditamos que suporte de qualidade vem de pessoas que entendem seus problemas.</p>
+                    <div class="faq-item">
+                        <h3>Existe um chatbot ou atendimento automático?</h3>
+                        <p>Não, oferecemos atendimento humano real! Todas as mensagens são respondidas por membros da nossa equipe. Acreditamos que suporte de qualidade vem de pessoas que entendem seus problemas.</p>
+                    </div>
                 </div>
             </div>
 
             <!-- SEÇÃO: PROMOÇÕES -->
             <div class="faq-section">
-                <h2>🎁 Promoções e Ofertas</h2>
-                
-                <div class="faq-item">
-                    <h3>Quando vocês fazem promoções?</h3>
-                    <p>Oferecemos promoções mensalmente, especialmente em datas sazonais (Black Friday, Natal, aniversário da loja). Acompanhe nossas redes sociais e se inscreva em nossa newsletter para não perder ofertas exclusivas.</p>
-                </div>
+                <h2 data-count="3">🎁 Promoções e Ofertas</h2>
+                <div class="faq-items-grid">
+                    <div class="faq-item">
+                        <h3>Quando vocês fazem promoções?</h3>
+                        <p>Oferecemos promoções mensalmente, especialmente em datas sazonais (Black Friday, Natal, aniversário da loja). Acompanhe nossas redes sociais e se inscreva em nossa newsletter para não perder ofertas exclusivas.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>Existe lista de espera para produtos fora de estoque?</h3>
-                    <p>Sim! Ao acessar um produto fora de estoque, você pode se cadastrar para notificação. Avisaremos por email ou WhatsApp quando o produto retornar. Você também pode entrar em contato diretamente para saber quando o produto chegará.</p>
-                </div>
+                    <div class="faq-item">
+                        <h3>Existe lista de espera para produtos fora de estoque?</h3>
+                        <p>Sim! Ao acessar um produto fora de estoque, você pode se cadastrar para notificação. Avisaremos por email ou WhatsApp quando o produto retornar. Você também pode entrar em contato diretamente para saber quando o produto chegará.</p>
+                    </div>
 
-                <div class="faq-item">
-                    <h3>Como faço para receber cupons e descontos?</h3>
-                    <p>Siga nosso WhatsApp e entre em contato. Clientes ativos podem receber cupons exclusivos. Atualmente oferecemos o cupom SCA10 com 10% de desconto. Fique atento às novas promoções!</p>
+                    <div class="faq-item">
+                        <h3>Como faço para receber cupons e descontos?</h3>
+                        <p>Siga nosso WhatsApp e entre em contato. Clientes ativos podem receber cupons exclusivos. Atualmente oferecemos o cupom SCA10 com 10% de desconto. Fique atento às novas promoções!</p>
+                    </div>
                 </div>
             </div>
         </div>
