@@ -1,0 +1,49 @@
+- article [ref=f1e2]:
+  - generic [ref=f1e3]:
+    - img "Logo" [ref=f1e5]
+    - navigation [ref=f1e6]:
+      - list [ref=f1e7]:
+        - listitem [ref=f1e8]:
+          - link "Início" [ref=f1e9] [cursor=pointer]:
+            - /url: ../index.html
+        - listitem [ref=f1e10]:
+          - link "Teclados" [ref=f1e11] [cursor=pointer]:
+            - /url: ../html/teclados.html
+        - listitem [ref=f1e12]:
+          - link "Mouses" [ref=f1e13] [cursor=pointer]:
+            - /url: ../html/mouses.html
+        - listitem [ref=f1e14]:
+          - link "Fones de Ouvido" [ref=f1e15] [cursor=pointer]:
+            - /url: ../html/fones.html
+        - listitem [ref=f1e16]:
+          - link "Contato e Localização" [ref=f1e17] [cursor=pointer]:
+            - /url: ../html/contato.html
+        - listitem [ref=f1e18]:
+          - link [ref=f1e19] [cursor=pointer]:
+            - /url: ../html/carrinho.html
+            - img "Carrinho de Compras" [ref=f1e20]
+  - main [ref=f1e21]:
+    - heading "Seu Carrinho:" [level=1] [ref=f1e22]
+    - generic [ref=f1e23]:
+      - generic [ref=f1e24]:
+        - heading "Seus Produtos:" [level=3] [ref=f1e25]
+        - paragraph [ref=f1e27]: Seu carrinho está vazio.
+      - complementary "Resumo da compra" [ref=f1e28]:
+        - heading "Resumo da compra" [level=3] [ref=f1e29]
+        - generic [ref=f1e30]:
+          - generic [ref=f1e31]: Cupom de desconto
+          - generic [ref=f1e32]:
+            - textbox "Cupom de desconto" [ref=f1e33]:
+              - /placeholder: Digite seu cupom
+            - button "Aplicar" [ref=f1e34] [cursor=pointer]
+          - status [ref=f1e35]
+        - generic [ref=f1e36]:
+          - generic [ref=f1e37]: Subtotal
+          - strong [ref=f1e38]: R$ 0,00
+        - generic [ref=f1e39]:
+          - generic [ref=f1e40]: Desconto
+          - strong [ref=f1e41]: R$ 0,00
+        - generic [ref=f1e42]:
+          - generic [ref=f1e43]: Total
+          - strong [ref=f1e44]: R$ 0,00
+  - paragraph [ref=f1e46]: © Desenvolvido por Bernardo Girardi Frigeri - Senac 2026

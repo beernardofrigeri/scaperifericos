@@ -1,0 +1,80 @@
+- generic [active] [ref=f2e1]:
+  - banner [ref=f2e2]:
+    - img "Logo" [ref=f2e4]
+    - navigation [ref=f2e5]:
+      - list [ref=f2e6]:
+        - listitem [ref=f2e7]:
+          - link "Início" [ref=f2e8] [cursor=pointer]:
+            - /url: ../../index.html
+        - listitem [ref=f2e9]:
+          - link "Teclados" [ref=f2e10] [cursor=pointer]:
+            - /url: ../teclados.html
+        - listitem [ref=f2e11]:
+          - link "Mouses" [ref=f2e12] [cursor=pointer]:
+            - /url: ../mouses.html
+        - listitem [ref=f2e13]:
+          - link "Fones de Ouvido" [ref=f2e14] [cursor=pointer]:
+            - /url: ../fones.html
+        - listitem [ref=f2e15]:
+          - link "Contato e Localização" [ref=f2e16] [cursor=pointer]:
+            - /url: ../contato.html
+        - listitem [ref=f2e17]:
+          - link [ref=f2e18] [cursor=pointer]:
+            - /url: ../carrinho.html
+            - img "Carrinho de Compras" [ref=f2e19]
+  - main [ref=f2e20]:
+    - heading "Teclado mecânico AULA F75!" [level=1] [ref=f2e21]
+    - generic [ref=f2e22]:
+      - generic [ref=f2e23]:
+        - img "Banner" [ref=f2e24]
+        - generic [ref=f2e25]:
+          - generic [ref=f2e26]:
+            - heading "Teclado Aula F75" [level=3] [ref=f2e27]
+            - paragraph [ref=f2e28]: Teclado mecânico compacto, switches hot-swap, iluminação RGB e construção robusta — ideal para produtividade e jogos.
+            - paragraph [ref=f2e29]:
+              - strong [ref=f2e30]: "De R$: 499,99 por R$: 249,99"
+            - button "Adicionar ao carrinho" [ref=f2e31] [cursor=pointer]
+          - generic [ref=f2e32]:
+            - heading "Teclado Aula F75 Pro" [level=3] [ref=f2e33]
+            - paragraph [ref=f2e34]: Teclado mecânico compacto, switches hot-swap, iluminação RGB e construção robusta — ideal para produtividade e jogos. A versão Pro oferece ainda mais recursos e personalizações. Como uma tela interativa para editar como quiser e mais qualidade de construção e sustentabilidade.
+            - paragraph [ref=f2e35]:
+              - strong [ref=f2e36]: "R$: 699,00"
+            - button "Adicionar ao carrinho" [ref=f2e37] [cursor=pointer]
+      - generic [ref=f2e38]:
+        - button "Anterior" [ref=f2e39] [cursor=pointer]: ←
+        - button "Próximo" [ref=f2e40] [cursor=pointer]: →
+      - generic [ref=f2e41]:
+        - heading "Visão Geral" [level=3] [ref=f2e42]
+        - paragraph [ref=f2e43]: O Teclado Aula F75 é um teclado mecânico compacto projetado para oferecer uma experiência de digitação confortável e eficiente. Com switches hot-swap, você pode personalizar facilmente seu teclado trocando as teclas conforme sua preferência. A iluminação RGB personalizável permite que você ajuste as cores e efeitos de luz para combinar com seu estilo.
+      - generic [ref=f2e44]:
+        - heading "Especificações Técnicas:" [level=4] [ref=f2e45]
+        - list [ref=f2e46]:
+          - listitem [ref=f2e47]: "Drivers: PRO-G 40mm"
+          - listitem [ref=f2e48]: "Resposta de Frequência: 20Hz – 20kHz"
+          - listitem [ref=f2e49]: "Microfone: Cardioide removível (100Hz – 10kHz)"
+          - listitem [ref=f2e50]: "Conectividade: Wireless LIGHTSPEED (USB 2.4GHz)"
+          - listitem [ref=f2e51]: "Alcance: Até 20 metros"
+          - listitem [ref=f2e52]: "Bateria: Até 29 horas (sem RGB)"
+          - listitem [ref=f2e53]: "Peso: 278g"
+          - listitem [ref=f2e54]: "Compatibilidade: Windows, macOS, PS4/PS5"
+          - listitem [ref=f2e55]: "Recursos Extras: RGB LightSync, ajustes via Logitech G HUB"
+          - listitem [ref=f2e56]: "Cores: Preto, Branco, Lilás, Azul"
+    - heading "Outros dos nossos produtos:" [level=2] [ref=f2e57]
+    - generic [ref=f2e58]:
+      - generic [ref=f2e60]:
+        - img "Produto 1" [ref=f2e62]
+        - paragraph [ref=f2e63]: Teclados
+        - paragraph [ref=f2e64]: Teclados mecânicos, RGB, e muito mais!
+        - button "Ver Mais" [ref=f2e65] [cursor=pointer]
+      - generic [ref=f2e67]:
+        - img "Produto 2" [ref=f2e69]
+        - paragraph [ref=f2e70]: Mouses
+        - paragraph [ref=f2e71]: Mouses ergonômicos e precisos com design moderno.
+        - button "Ver Mais" [ref=f2e72] [cursor=pointer]
+      - generic [ref=f2e74]:
+        - img "Produto 3" [ref=f2e76]
+        - paragraph [ref=f2e77]: Fones de Ouvido
+        - paragraph [ref=f2e78]: Fones com cancelamento de ruído e áudio imersivo.
+        - button "Ver Mais" [ref=f2e79] [cursor=pointer]
+  - contentinfo [ref=f2e80]:
+    - paragraph [ref=f2e81]: © Desenvolvido por Bernardo Girardi Frigeri - Senac 2026

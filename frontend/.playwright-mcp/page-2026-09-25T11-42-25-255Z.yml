@@ -1,0 +1,130 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - img "Logo" [ref=e3]
+    - navigation [ref=e4]:
+      - list [ref=e5]:
+        - listitem [ref=e6]:
+          - link "Início" [ref=e7] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=e8]:
+          - link "Teclados" [ref=e9] [cursor=pointer]:
+            - /url: html/teclados.html
+        - listitem [ref=e10]:
+          - link "Mouses" [ref=e11] [cursor=pointer]:
+            - /url: html/mouses.html
+        - listitem [ref=e12]:
+          - link "Fones de Ouvido" [ref=e13] [cursor=pointer]:
+            - /url: html/fones.html
+        - listitem [ref=e14]:
+          - link "Contato" [ref=e15] [cursor=pointer]:
+            - /url: html/contato.html
+        - listitem [ref=e16]:
+          - link [ref=e17] [cursor=pointer]:
+            - /url: html/carrinho.html
+            - img "Carrinho de Compras" [ref=e18]
+  - main [ref=e19]:
+    - heading "Promoções atuais de 50% off!" [level=1] [ref=e20]
+    - generic [ref=e21]:
+      - complementary [ref=e22]:
+        - paragraph [ref=e23]: Teclado Montech Mkey Pro 75
+        - img "Banner Left" [ref=e24]
+        - paragraph [ref=e25]:
+          - generic [ref=e26]:
+            - text: "De R$: 299,00 por"
+            - emphasis [ref=e27]: "R$: 149,00"
+        - button "Mais informações" [ref=e28] [cursor=pointer]
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - img "Headset Logitech G733"
+            - img "Teclado Aula F75"
+            - img "Teclado Aula F75"
+            - img "Teclado Aula F75"
+            - img "Teclado Aula F75"
+            - img "Machenike L8 Pro"
+            - img "Machenike L8 Pro"
+            - img "Headset Logitech G733"
+            - img "Headset Logitech G733"
+            - img "Headset Logitech G733"
+            - img "Teclado Aula F75"
+          - generic "Selecionar imagem do banner" [ref=e32]:
+            - button "Exibir imagem 1" [ref=e33] [cursor=pointer]
+            - button "Exibir imagem 2" [ref=e34] [cursor=pointer]
+            - button "Exibir imagem 3" [ref=e35] [cursor=pointer]
+            - button "Exibir imagem 4" [ref=e36] [cursor=pointer]
+            - button "Exibir imagem 5" [ref=e37] [cursor=pointer]
+            - button "Exibir imagem 6" [ref=e38] [cursor=pointer]
+            - button "Exibir imagem 7" [ref=e39] [cursor=pointer]
+            - button "Exibir imagem 8" [ref=e40] [cursor=pointer]
+            - button "Exibir imagem 9" [ref=e41] [cursor=pointer]
+        - complementary [ref=e42]:
+          - heading "Teclado Aula F75" [level=3] [ref=e43]
+          - paragraph [ref=e44]: Teclado mecânico compacto, switches hot-swap, iluminação RGB e construção robusta — ideal para produtividade e jogos.
+          - paragraph [ref=e45]: R$ 249,00
+          - button "Mais informações" [ref=e46] [cursor=pointer]
+    - generic [ref=e47]:
+      - generic [ref=e48]:
+        - heading "Por que comprar com a gente?" [level=2] [ref=e50]
+        - generic [ref=e51]:
+          - link [ref=e52] [cursor=pointer]:
+            - /url: html/faq.html
+            - heading "Frete rápido" [level=3] [ref=e59]
+            - paragraph [ref=e60]: Envio em até 24h para todo o Brasil.
+          - link [ref=e61] [cursor=pointer]:
+            - /url: html/faq.html
+            - heading "Garantia de 12 meses" [level=3] [ref=e66]
+            - paragraph [ref=e67]: Todos os produtos com garantia direto com a loja.
+          - link [ref=e68] [cursor=pointer]:
+            - /url: html/faq.html
+            - heading "Troca fácil" [level=3] [ref=e73]
+            - paragraph [ref=e74]: 7 dias para trocar ou devolver sem burocracia.
+          - link [ref=e75] [cursor=pointer]:
+            - /url: html/faq.html
+            - heading "Suporte real" [level=3] [ref=e79]
+            - paragraph [ref=e80]: Atendimento humano antes e depois da compra.
+      - generic [ref=e81]:
+        - heading "O que dizem nossos clientes" [level=2] [ref=e83]
+        - generic [ref=e84]:
+          - generic [ref=e85]:
+            - generic [ref=e86]: ★★★★★
+            - paragraph [ref=e87]: "\"Comprei o teclado Aula F75 e chegou em dois dias. Som e resposta das teclas surpreenderam pelo preço.\""
+            - generic [ref=e88]:
+              - generic [ref=e89]: JV
+              - generic [ref=e90]:
+                - generic [ref=e91]: João Vitor Lima
+                - generic [ref=e92]: Teclado Aula F75
+          - generic [ref=e93]:
+            - generic [ref=e94]: ★★★★★
+            - paragraph [ref=e95]: "\"Já tinha comprado periféricos em outros lugares e sempre dava algum problema. Aqui o suporte respondeu rápido quando precisei trocar.\""
+            - generic [ref=e96]:
+              - generic [ref=e97]: G
+              - generic [ref=e98]:
+                - generic [ref=e99]: Gus
+                - generic [ref=e100]: Mouse gamer
+          - generic [ref=e101]:
+            - generic [ref=e102]: ★★★★☆
+            - paragraph [ref=e103]: "\"Preço na promoção valeu muito a pena. Só demorou um pouco mais que o esperado, mas o produto é ótimo.\""
+            - generic [ref=e104]:
+              - generic [ref=e105]: MC
+              - generic [ref=e106]:
+                - generic [ref=e107]: Marina Costa
+                - generic [ref=e108]: Teclado Montech Mkey Pro
+    - heading "Nossos produtos!" [level=2] [ref=e109]
+    - generic [ref=e110]:
+      - generic [ref=e112]:
+        - img "Produto 1" [ref=e114]
+        - paragraph [ref=e115]: Teclados
+        - paragraph [ref=e116]: Teclados mecânicos, RGB, e muito mais!
+        - button "Ver Mais" [ref=e117] [cursor=pointer]
+      - generic [ref=e119]:
+        - img "Produto 2" [ref=e121]
+        - paragraph [ref=e122]: Mouses
+        - paragraph [ref=e123]: Mouses ergonômicos e precisos com design moderno.
+        - button "Ver Mais" [ref=e124] [cursor=pointer]
+      - generic [ref=e126]:
+        - img "Produto 3" [ref=e128]
+        - paragraph [ref=e129]: Fones de Ouvido
+        - paragraph [ref=e130]: Fones com cancelamento de ruído e áudio imersivo.
+        - button "Ver Mais" [ref=e131] [cursor=pointer]
+  - contentinfo [ref=e132]:
+    - paragraph [ref=e133]: © Desenvolvido por Bernardo Girardi Frigeri - Senac 2026
