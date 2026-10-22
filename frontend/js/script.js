@@ -66,7 +66,7 @@ function iniciarAutoplay() {
     autoplayTimer = setInterval(() => mostrarSlide(indice + 1), AUTOPLAY_MS);
 }
 
-if (bannerTrack && dots) {
+if (bannerTrack && dots && slides.length) {
     bannerTrack.innerHTML = '';
     var slidesDoTrilho = [slides[slides.length - 1]].concat(slides, slides[0]);
     slidesDoTrilho.forEach((slide, slideIndex) => {

@@ -1,30 +1,5 @@
-const express = require('express');
-const mysql = require('mysql2');
-const app = express();
-const port = 3000;
-const status500 = "Erro ao estabelecer conexão com o banco de dados.";
-const status200 = "Operação realizada com sucesso!";
-const status201 = "Recurso criado com sucesso.";
-const status404 = "Não encontrado.";
-const status400 = "Requisição inválida.";
-const status401 = "Email ou senha incorretos.";
-const status403 = "Valor não permitido.";
-
-const conexao = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'sca'
-});
-
-conexao.connect((erro) => {
-    if (erro) {
-        console.log(status500);
-    }
-    else {
-        console.log(status200);
-    }
-});
+const {status500, status200, status404, status400, status201, app, port} = require('./constante');
+const conexao = require('./banco');
 
 app.get('/', (req, res) => {
     return res.status(200).send({message: status200});
