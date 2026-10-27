@@ -1,0 +1,48 @@
+Exemplos de Javascript 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: white;
+            color:black
+        }
+        body.dark-mode{
+            background-color: black;
+            color:white
+        }
+    </style>
+</head>
+<body>
+    <h1 id="alterarTexto" onclick="alterarHTML()">Olá</h1>
+    <h2>Caxias do Sul</h2>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem optio pariatur fugit quaerat, dolor dolorem nam! Ut sequi corrupti quasi modi aspernatur autem molestiae voluptate dolor. Blanditiis iusto recusandae porro.!</p>
+    <p id="vermais" onclick="verMais()">Ver mais</p>
+    <button id="vermais" onclick="verMais()">Ver mais</button>
+ 
+    <button id="dark-mode" onclick="alterarFundo()">Alterar</button>
+ 
+</body>
+<script>
+    function alterar(){
+        let elemento = document.getElementById("alterarTexto")
+        elemento.innerText = "Olá mundo!"
+    }
+    function alterarHTML(){
+        let elemento = document.getElementById("alterarTexto")
+        elemento.innerHTML = "<h1>Hello world!</h1>"
+    }
+    function verMais(){
+        let elemento = document.getElementById("vermais")
+        elemento.innerText = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem optio pariatur fugit quaerat, dolor dolorem nam! Ut sequi corrupti quasi modi aspernatur autem molestiae voluptate dolor. Blanditiis iusto recusandae porro.!"
+        elemento.style.color = "blue"
+        elemento.style.backgroundColor = "green"
+    }
+    function alterarFundo(){
+        document.body.classList.toggle("dark-mode")
+    }
+</script>
+</html>
