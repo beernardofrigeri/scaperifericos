@@ -183,13 +183,28 @@ function renderCart() {
     cart.forEach(item => {
         let itemEl = document.createElement('div');
         itemEl.className = 'cart-item';
-        itemEl.innerHTML = `
-            <img src="${item.image || ''}" alt="${item.title}" width="60" height="60">
-            <span class="cart-title">${item.title}</span>
-            <input type="number" min="1" value="${item.qty}" data-id="${item.id}" class="cart-qty">
-            <span class="cart-price">${formatCurrency(item.price)}</span>
-            <button data-id="${item.id}" class="cart-remove">×</button>
-        `;
+        let img = document.createElement('img');
+        img.src = item.image || '';
+        img.alt = item.title || '';
+        img.width = 60;
+        img.height = 60;
+        let title = document.createElement('span');
+        title.className = 'cart-title';
+        title.textContent = item.title || '';
+        let qtyInput = document.createElement('input');
+        qtyInput.type = 'number';
+        qtyInput.min = '1';
+        qtyInput.value = item.qty;
+        qtyInput.dataset.id = item.id;
+        qtyInput.className = 'cart-qty';
+        let price = document.createElement('span');
+        price.className = 'cart-price';
+        price.textContent = formatCurrency(item.price);
+        let removeBtn = document.createElement('button');
+        removeBtn.dataset.id = item.id;
+        removeBtn.className = 'cart-remove';
+        removeBtn.textContent = '×';
+        itemEl.append(img, title, qtyInput, price, removeBtn);
         container.appendChild(itemEl);
         total += (item.price || 0) * item.qty;
     });
@@ -217,7 +232,10 @@ function removeFromCart(id) {
 }
 
 function updateQuantity(id, qty) {
-    if (qty < 1) return;
+    if (!Number.isInteger(qty) || qty < 1) {
+        renderCart();
+        return;
+    }
     let cart = getCart();
     let item = cart.find(i => i.id === id);
     if (item) {

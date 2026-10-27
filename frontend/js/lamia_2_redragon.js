@@ -18,6 +18,7 @@ if (banner) {
 }
 // inicializa descrição junto com a imagem atual
 function atualizarDescricao() {
+    if (typeof descricoes === 'undefined') return;
     if (bannerTitle) bannerTitle.textContent = descricoes[indice].title || "";
     if (bannerText) bannerText.textContent = descricoes[indice].text || "";
     if (bannerPrice) bannerPrice.textContent = descricoes[indice].price || "";

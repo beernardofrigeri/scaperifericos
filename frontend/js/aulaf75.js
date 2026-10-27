@@ -19,6 +19,7 @@ if (banner) {
 }
 // inicializa descrição junto com a imagem atual
 function atualizarDescricao() {
+    if (typeof descricoes === 'undefined') return;
     return;
 }
 atualizarDescricao();
