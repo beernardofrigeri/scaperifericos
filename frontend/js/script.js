@@ -315,10 +315,15 @@ function setupCheckout() {
     }
     let couponForm = document.getElementById('coupon-form');
     if (couponForm) {
+        let input = document.getElementById('coupon-code');
+        let message = document.getElementById('coupon-message');
+        if (getCoupon() === 'SCA10') {
+            input.value = getCoupon();
+            message.textContent = 'Cupom aplicado: 10% de desconto.';
+            message.style.color = '#16803c';
+        }
         couponForm.addEventListener('submit', (event) => {
             event.preventDefault();
-            let input = document.getElementById('coupon-code');
-            let message = document.getElementById('coupon-message');
             let code = input.value.trim().toUpperCase();
             if (code === 'SCA10') {
                 localStorage.setItem('cartCoupon', code);
