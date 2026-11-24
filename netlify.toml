@@ -1,0 +1,3 @@
+[build]
+  # O site estático (index.html, css, js, img) fica dentro de "frontend/"
+  publish = "frontend"
