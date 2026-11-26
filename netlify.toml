@@ -1,0 +1,5 @@
+# O site estático fica na pasta "frontend" (onde está o index.html).
+# Publicar apenas essa pasta evita o erro 404 na página inicial e
+# impede que os arquivos do backend fiquem expostos publicamente.
+[build]
+  publish = "frontend"
